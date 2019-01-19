@@ -11,22 +11,19 @@ import com.moneymoney.web.entity.Transaction;
 
 @Controller
 public class BankAppController {
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
-	
+
 	@RequestMapping("/")
 	public String depositForm() {
 		return "DepositForm";
 	}
+
 	@RequestMapping("/deposit")
-	public String deposit(@ModelAttribute Transaction transaction,
-			Model model) {
-		restTemplate.postForEntity("http://localhost:9090/transactions", 
-				transaction, null);
-		model.addAttribute("message","Success!");
+	public String deposit(@ModelAttribute Transaction transaction, Model model) {
+		restTemplate.postForEntity("http://localhost:9090/transactions", transaction, null);
+		model.addAttribute("message", "Success!");
 		return "DepositForm";
 	}
-	
-	
 }

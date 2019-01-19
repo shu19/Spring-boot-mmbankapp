@@ -9,39 +9,48 @@ public class Account {
 	private Integer accountNumber;
 	private String accountHolderName;
 	private Double currentBalance;
-	
+
 	public Account() {
+
 	}
+
 	public Account(Integer accountNumber, String accountHolderName) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountHolderName = accountHolderName;
 	}
+
 	public Account(Integer accountNumber, String accountHolderName, Double currentBalance) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountHolderName = accountHolderName;
 		this.currentBalance = currentBalance;
 	}
+
 	public Integer getAccountNumber() {
 		return accountNumber;
 	}
+
 	public void setAccountNumber(Integer accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+
 	public String getAccountHolderName() {
 		return accountHolderName;
 	}
+
 	public void setAccountHolderName(String accountHolderName) {
 		this.accountHolderName = accountHolderName;
 	}
+
 	public Double getCurrentBalance() {
 		return currentBalance;
 	}
+
 	public void setCurrentBalance(Double currentBalance) {
 		this.currentBalance = currentBalance;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -50,6 +59,7 @@ public class Account {
 		result = prime * result + ((accountNumber == null) ? 0 : accountNumber.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -71,6 +81,7 @@ public class Account {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Account [accountNumber=" + accountNumber + ", accountHolderName=" + accountHolderName

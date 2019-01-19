@@ -14,4 +14,8 @@ public interface AccountService {
 
 	void updateBalance(Account account);
 
+	void addNewAccount(Account account);
+
+	void updateAccount(Account account);
+
 }
