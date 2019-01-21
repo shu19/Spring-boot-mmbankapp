@@ -11,7 +11,7 @@
 <h1>${message}</h1>
 
 
-<form action="deposit" method="get">
+<form action="withdraw" method="post">
 	Enter Account Number: <input name="accountNumber"/><br/>
 	Enter Amount : <input name="amount"/><br/>
 	<input type="submit"/>

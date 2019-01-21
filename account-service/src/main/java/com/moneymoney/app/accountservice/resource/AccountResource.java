@@ -23,50 +23,51 @@ public class AccountResource {
 
 	@Autowired
 	private AccountService service;
-	
+
 	@PostMapping
 	public void addNewAccount(@RequestBody Account account) {
 		service.addNewAccount(account);
 	}
 
 	@GetMapping
-	public List<Account> getAllAccounts(){
+	public List<Account> getAllAccounts() {
 		return service.getAllAccounts();
 	}
-	
+
 	@PutMapping
 	public void updateAccount(@RequestBody Account account) {
 		service.updateAccount(account);
 	}
-			
-	@GetMapping ("/{accountNumber}")
-	public ResponseEntity<Account>getAccountById(@PathVariable int accountNumber) {
-		Account account=service.getAccountById(accountNumber);
 
-		if(account==null) {
-			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+	@GetMapping("/{accountNumber}")
+	public ResponseEntity<Account> getAccountById(@PathVariable int accountNumber) {
+		Account account = service.getAccountById(accountNumber);
+
+		if (account == null) {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
-		
-		return new ResponseEntity<Account>(account,HttpStatus.OK);
+
+		return new ResponseEntity<Account>(account, HttpStatus.OK);
 	}
-	
-	@GetMapping ("/{accountNumber}/balance")
+
+	@GetMapping("/{accountNumber}/balance")
 	public Double getAccountBalance(@PathVariable int accountNumber) {
 		return service.getAccountBalance(accountNumber);
 	}
-	
-	@PutMapping ("/{accountNumber}")
-	public ResponseEntity<Account>updateBalance(@PathVariable int accountNumber,@RequestParam("balance") Double currentBalance) {
-		Account account=service.getAccountById(accountNumber);
 
-		if(account==null) {
-			return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+	@PutMapping("/{accountNumber}")
+	public ResponseEntity<Account> updateBalance(@PathVariable int accountNumber,
+			@RequestParam("balance") Double amount) {
+		Account account = service.getAccountById(accountNumber);
+
+		if (account == null) {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
-		currentBalance=account.getCurrentBalance()+currentBalance;
-		account.setCurrentBalance(currentBalance);
+		double balance = account.getCurrentBalance() + amount;
+		account.setCurrentBalance(balance);
 		service.updateBalance(account);
-		
-		return new ResponseEntity<Account>(account,HttpStatus.OK);
+
+		return new ResponseEntity<Account>(account, HttpStatus.OK);
 	}
-		
+
 }

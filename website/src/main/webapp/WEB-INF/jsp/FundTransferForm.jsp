@@ -11,8 +11,9 @@
 <h1>${message}</h1>
 
 
-<form action="deposit" method="get">
-	Enter Account Number: <input name="accountNumber"/><br/>
+<form action="fundTransfer" method="post">
+	Enter Sender Account Number: <input name="senderAccountNumber"/><br/>
+	Enter Receiver Account Number: <input name="receiverAccountNumber"/><br/>
 	Enter Amount : <input name="amount"/><br/>
 	<input type="submit"/>
 </form>
