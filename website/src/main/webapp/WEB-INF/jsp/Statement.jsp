@@ -9,6 +9,7 @@
 </head>
 <body>
 
+${dataset }
 	<table>
 		<tr>
 			<th>Transaction Id</th>

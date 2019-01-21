@@ -98,6 +98,7 @@ public class TransactionResource {
 			Transaction transaction = transactions.get(i);
 			currentDataSet.add(transaction);
 		}
+		
 		System.out.println(currentDataSet);
 		DataSet dataSet = new DataSet(currentDataSet, next, previous);
 
